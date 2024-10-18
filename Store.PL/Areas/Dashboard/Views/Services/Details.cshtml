@@ -1,0 +1,44 @@
+﻿@model ServiceDetailsVm
+@{
+    ViewData["Title"] = "Details";
+}
+@section Header{
+   
+    <h1>Details </h1>
+}
+<div class="container d-flex  min-vh-200">
+    <div class="card shadow-lg border-0 col-md-8 col-lg-6">
+        <div class="card-header bg-primary text-white text-center">
+            <h2 class="card-title mb-0">@Model.name Service</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="~/Files/images/@Model.ImageName" class="img-fluid" alt="Image" style="height: 85%; width: 85%;">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                   
+                        <li class="mb-3">
+                            <p class="card-text font-weight-bold">Description :</p>
+                            <p class="card-text">@Model.description</p>
+                        </li>
+                        <li class="mb-3">
+                            <p class="card-text font-weight-bold ">Created At :</p>
+                            <p class="card-text ">@Model.CreatedTime</p>
+                        </li>
+                        <li>
+                            <p class="card-text font-weight-bold ">Delete Status :</p>
+                            <span class="card-text">
+                                @(Model.IsDeleted ? "Deleted Service" : "Active service")
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

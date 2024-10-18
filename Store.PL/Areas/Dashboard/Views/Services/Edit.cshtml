@@ -1,0 +1,85 @@
+﻿@model ServicesFormVm
+@{
+    ViewData["Title"] = "Edit";
+ 
+}
+
+@section style {
+    <link href="~/dashboard/css/uploadimage.css" rel="stylesheet" />
+
+}
+@section Header{
+    <h1>Edit</h1>
+
+}
+
+
+
+<div class="col-md-12">
+    <div class="col-md-6">
+
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Edit</h3>
+            </div>
+            <form asp-controller="Services" asp-action="Edit" enctype="multipart/form-data">
+                <div class="card-body">
+                    <input type="hidden" asp-for="id" />
+                    <input type="hidden" asp-for="Imagename" />
+                    <div class="form-group">
+                        <label asp-for="name">Service Name</label>
+                        <input asp-for="name" class="form-control" placeholder="Enter Service Name">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="description">Service description</label>
+                        <input asp-for="description" class="form-control" placeholder="Enter Service description">
+                        
+                    </div>
+                    <div class="form-group">
+                        
+                            <div class="col">
+                            <label asp-for="IsDeleted">Services Status:  <span class="text-muted pl-1 "> @(Model.IsDeleted ? "Active " : "Deleted ")   </span>  </label>
+
+                            <div class="d-flex  align-content-center  ">
+                                <span class="text-muted  pr-2"> Activate Service </span>
+                                <input asp-for="IsDeleted">
+                          </div>
+
+                          
+                          </<div>
+                       </div>
+                        
+
+                    </div>
+                        <div class="row py-4">
+                            <div class="col-lg-6 mx-auto">
+
+                                <!-- Upload image input-->
+                                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+
+                                    <input asp-for="Image" id="Imageupload" type="file" onchange="readURL(this);" class="form-control border-0">
+
+                                    <label asp-for="Image" id="upload-label" class="font-weight-light text-muted">Choose file</label>
+
+                                    <div class="input-group-append">
+
+                                        <label for="Imageupload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                                    </div>
+                                </div>
+
+                                <!-- Uploaded image area-->
+                                <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block small-image "></div>
+
+                            </div>
+                        </div>
+               
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @section scripts {
+        <script src="~/dashboard/js/imageupload.js"></script>
+    }

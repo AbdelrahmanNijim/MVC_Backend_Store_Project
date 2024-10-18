@@ -14,7 +14,13 @@ namespace Store.PL.Controllers
         }
 
         public IActionResult Index()
+
         {
+            
+            //var viewdata["services"]= AppContext.Services.Tolist
+
+        
+
             return View();
         }
 
